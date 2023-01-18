@@ -4,5 +4,5 @@
 
 > Link do jogo: [Memo](https://memoogame.netlify.app/)
 
-## Caso queira baixar e rodar na sua máquina:
+## Caso queira baixar o código e rodar na sua máquina:
 - npm run dev
