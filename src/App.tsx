@@ -164,6 +164,19 @@ const App = () => {
                ))}
             </C.CardArea>
          </main>
+
+         <footer>
+            <p>
+               Ícones retirados daqui:{" "}
+               <a href="https://thenounproject.com/symbolon/" target="_blank">
+                  Symbolon
+               </a>
+            </p>
+            <p>
+               Todo o site feito por{" "}
+               <a href="https://guisantoandre.github.io/">Guilherme</a>
+            </p>
+         </footer>
       </C.Container>
    );
 };

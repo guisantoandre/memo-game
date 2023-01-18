@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
    max-width: 60%;
    margin: auto;
+   min-height: 100vh;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: auto 1fr auto;
+   align-items: space-between;
 
    header {
-      padding: 8rem 0;
+      padding: 7rem 0;
    }
 
    main {
@@ -13,6 +18,20 @@ export const Container = styled.div`
       grid-template-columns: 250px 1fr;
       align-items: center;
       gap: 0 6rem;
+   }
+
+   footer {
+      text-align: center;
+      font-size: 1.8rem;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem 0;
+
+      a {
+         font-weight: 700;
+         color: var(--darkOrange);
+      }
    }
 
    @media (max-width: 1400px) {

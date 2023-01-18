@@ -17,9 +17,11 @@
    box-sizing: border-box;
 }
 
-body {
+body,
+html {
    font-family: var(--sofia);
    color: var(--primaryColor);
+   min-height: 100vh;
 }
 
 a {
