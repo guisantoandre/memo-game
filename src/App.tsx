@@ -173,7 +173,7 @@ const App = () => {
                </a>
             </p>
             <p>
-               Todo o site feito por{" "}
+               Feito por{" "}
                <a href="https://guisantoandre.github.io/">Guilherme</a>
             </p>
          </footer>
