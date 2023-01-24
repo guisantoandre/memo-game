@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import * as C from "./App.styles";
-import logo from "./assets/memologo.svg";
-import returnIcon from "./assets/returnicon.svg";
-import pauseIcon from "./assets/pauseicon.svg";
-import playIcon from "./assets/playicon.svg";
+import * as C from "./styles/container";
+import logoLight from "./assets/svgs/memologolight.svg";
+import logoDark from "./assets/svgs/memologodark.svg";
+import returnIcon from "./assets/svgs/returnicon.svg";
+import pauseIcon from "./assets/svgs/pauseicon.svg";
+import playIcon from "./assets/svgs/playicon.svg";
+import moonIcon from "./assets/svgs/moonicon.svg";
+import sunIcon from "./assets/svgs/sunicon.svg";
 
 import { CardType } from "./types/CardType";
 
@@ -13,6 +16,11 @@ import { items } from "./data/items";
 import { Card } from "./components/Card";
 import { timerFormat } from "./utils/timerFormat";
 
+import GlobalStyles from "./styles/global";
+import { ThemeProvider, ThemeContext } from "styled-components";
+import light from "./styles/themes/light";
+import dark from "./styles/themes/dark";
+
 const App = () => {
    const [start, setStart] = useState<boolean>(false);
    const [stopWatch, setTimer] = useState<number>(0);
@@ -20,6 +28,7 @@ const App = () => {
    const [shownCard, setShownCard] = useState<number>(0);
    const [cards, setCards] = useState<CardType[]>([]);
    const [disablePausePlayButton, setDisable] = useState<boolean>(false);
+   const [theme, setTheme] = useState(light);
 
    useEffect(() => resetAndCreatGrid(), []);
 
@@ -124,60 +133,81 @@ const App = () => {
       }
    };
 
-   return (
-      <C.Container>
-         <header>
-            <h1>
-               <a href="">
-                  <img src={logo} width="120" alt="Logo Memo" />
-               </a>
-            </h1>
-         </header>
-         <main>
-            <C.InfoArea>
-               <div className="infoContainer">
-                  <InfoItem title="Tempo" info={timerFormat(stopWatch)} />
-                  <InfoItem title="Tentativas" info={attempts.toString()} />
-               </div>
-               <div className="buttonContainer">
-                  <Button
-                     text="Reiniciar"
-                     icon={returnIcon}
-                     clickButton={resetAndCreatGrid}
-                     showButton={true}
-                  />
-                  <Button
-                     text={start ? "Pausar" : "Play"}
-                     icon={start ? pauseIcon : playIcon}
-                     clickButton={toggleTimer}
-                     showButton={disablePausePlayButton ? false : true}
-                  />
-               </div>
-            </C.InfoArea>
-            <C.CardArea>
-               {cards.map((card, index) => (
-                  <Card
-                     key={index}
-                     data={card}
-                     clickCard={() => handleClickCard(index)}
-                  />
-               ))}
-            </C.CardArea>
-         </main>
+   const toggleTheme = () => {
+      setTheme(theme.title === "light" ? dark : light);
+   };
 
-         <footer>
-            <p>
-               Ícones retirados daqui:{" "}
-               <a href="https://thenounproject.com/symbolon/" target="_blank">
-                  Symbolon
-               </a>
-            </p>
-            <p>
-               Feito por{" "}
-               <a href="https://guisantoandre.github.io/">Guilherme</a>
-            </p>
-         </footer>
-      </C.Container>
+   return (
+      <ThemeProvider theme={theme}>
+         <C.Container>
+            <GlobalStyles />
+            <header>
+               <h1>
+                  <a href="">
+                     <img
+                        src={theme.title === "light" ? logoDark : logoLight}
+                        width="120"
+                        alt="Logo Memo"
+                     />
+                  </a>
+               </h1>
+               <div className="toggleIcon">
+                  <img
+                     src={theme.title === "light" ? moonIcon : sunIcon}
+                     alt={theme.title === "light" ? "Moon Icon" : "SunIcon"}
+                     onClick={toggleTheme}
+                  />
+               </div>
+            </header>
+            <main>
+               <C.InfoArea>
+                  <div className="infoContainer">
+                     <InfoItem title="Tempo" info={timerFormat(stopWatch)} />
+                     <InfoItem title="Tentativas" info={attempts.toString()} />
+                  </div>
+                  <div className="buttonContainer">
+                     <Button
+                        text="Reiniciar"
+                        icon={returnIcon}
+                        clickButton={resetAndCreatGrid}
+                        showButton={true}
+                     />
+                     <Button
+                        text={start ? "Pausar" : "Play"}
+                        icon={start ? pauseIcon : playIcon}
+                        clickButton={toggleTimer}
+                        showButton={disablePausePlayButton ? false : true}
+                     />
+                  </div>
+               </C.InfoArea>
+               <C.CardArea>
+                  {cards.map((card, index) => (
+                     <Card
+                        key={index}
+                        data={card}
+                        clickCard={() => handleClickCard(index)}
+                     />
+                  ))}
+               </C.CardArea>
+            </main>
+
+            <footer>
+               <p>
+                  Ícones retirados daqui:{" "}
+                  <a
+                     href="https://thenounproject.com/symbolon/"
+                     target="_blank"
+                  >
+                     Symbolon
+                  </a>
+               </p>
+               <p>
+                  Feito por{" "}
+                  <a href="https://guisantoandre.github.io/">Guilherme</a>
+               </p>
+            </footer>
+         </C.Container>
+      </ThemeProvider>
    );
 };
 

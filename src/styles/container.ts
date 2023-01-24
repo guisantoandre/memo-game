@@ -11,6 +11,13 @@ export const Container = styled.div`
 
    header {
       padding: 7rem 0;
+      display: flex;
+      justify-content: space-between;
+
+      .toggleIcon img {
+         cursor: pointer;
+         width: 30px;
+      }
    }
 
    main {

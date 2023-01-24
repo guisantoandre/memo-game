@@ -6,7 +6,7 @@ export const InfoWrapper = styled.div`
 
 export const TitleArea = styled.h2`
    font-size: 1.9rem;
-   color: var(--textColor);
+   color: var(--subtitle);
    font-weight: 500;
    margin-bottom: -0.8rem;
 `;
