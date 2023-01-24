@@ -26,7 +26,7 @@ export default createGlobalStyle`
       font-family: var(--sofia);
       color: var(--mainText);
       min-height: 100vh;
-      transition: .5s ease;
+      transition: background .5s ease;
    }
 
    a {
