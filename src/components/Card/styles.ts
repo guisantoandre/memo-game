@@ -6,7 +6,7 @@ type ContainerProps = {
 export const Container = styled.div<ContainerProps>`
    display: grid;
    place-items: center;
-   background: ${(props) => (props.background ? "#323B4E" : "#e9e9e9")};
+   background: ${(props) => (props.background ? "#2156B8" : "#e9e9e9")};
    height: 110px;
    width: 110px;
    border: ${(props) =>
