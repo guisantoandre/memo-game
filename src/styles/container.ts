@@ -38,6 +38,10 @@ export const Container = styled.div`
       a {
          font-weight: 700;
          color: var(--darkOrange);
+
+         img {
+            width: 1.4rem;
+         }
       }
    }
 

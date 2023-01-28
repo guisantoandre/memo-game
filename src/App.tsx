@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as C from "./styles/container";
 import logoLight from "./assets/svgs/memologolight.svg";
 import logoDark from "./assets/svgs/memologodark.svg";
+import openInNewIcon from "./assets/svgs/openinnew.svg";
 import returnIcon from "./assets/svgs/returnicon.svg";
 import pauseIcon from "./assets/svgs/pauseicon.svg";
 import playIcon from "./assets/svgs/playicon.svg";
@@ -154,7 +155,7 @@ const App = () => {
                <div className="toggleIcon">
                   <img
                      src={theme.title === "light" ? moonIcon : sunIcon}
-                     alt={theme.title === "light" ? "Moon Icon" : "SunIcon"}
+                     alt={theme.title === "light" ? "Ícone Lua" : "Ícone Sol"}
                      onClick={toggleTheme}
                   />
                </div>
@@ -203,7 +204,13 @@ const App = () => {
                </p>
                <p>
                   Feito por{" "}
-                  <a href="https://guisantoandre.github.io/">Guilherme</a>
+                  <a href="https://guisantoandre.github.io/" target="_blank">
+                     Guilherme{" "}
+                     <img
+                        src={openInNewIcon}
+                        alt="Ícone abrir site em outra aba"
+                     />
+                  </a>
                </p>
             </footer>
          </C.Container>
