@@ -204,7 +204,7 @@ const App = () => {
                </p>
                <p>
                   Feito por{" "}
-                  <a href="https://guisantoandre.github.io/" target="_blank">
+                  <a href="https://arcode.netlify.app/" target="_blank">
                      Guilherme{" "}
                      <img
                         src={openInNewIcon}
