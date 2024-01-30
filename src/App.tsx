@@ -192,7 +192,7 @@ const App = () => {
                </C.CardArea>
             </main>
 
-            <footer>
+            {/* <footer>
                <p>
                   Ícones retirados daqui:{" "}
                   <a
@@ -212,7 +212,7 @@ const App = () => {
                      />
                   </a>
                </p>
-            </footer>
+            </footer> */}
          </C.Container>
       </ThemeProvider>
    );

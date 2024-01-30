@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-   max-width: 60%;
+   max-width: 1100px;
    margin: auto;
    min-height: 100vh;
    display: grid;
@@ -25,6 +25,7 @@ export const Container = styled.div`
       grid-template-columns: 250px 1fr;
       align-items: center;
       gap: 0 6rem;
+      margin-top: -8rem;
    }
 
    footer {
@@ -60,7 +61,6 @@ export const Container = styled.div`
    @media (max-width: 1050px) {
       main {
          grid-template-columns: 1fr;
-         gap: 3rem 0;
       }
    }
 `;
@@ -95,6 +95,7 @@ export const CardArea = styled.section`
 
    @media (max-width: 1050px) {
       justify-self: center;
+      align-self: flex-start;
    }
 
    @media (max-width: 500px) {
